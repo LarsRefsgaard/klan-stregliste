@@ -1,16 +1,22 @@
 <template>
-  <h2>Users</h2>
+  <!-- <h2>UserList</h2> -->
   <div v-for="user in users" :key="user.id">
-    {{user['scout-name']}}
+    <hr />
+    <User :user="user" />
   </div>
+  <hr />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { getAllUsersFromDatabase } from '@/composables/getUser(s)';
+import User from './User.vue';
 
 export default defineComponent({
   name: 'UserList',
+  components: {
+    User,
+  },
   setup() {
     const users = getAllUsersFromDatabase();
 
