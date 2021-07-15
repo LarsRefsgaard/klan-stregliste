@@ -1,18 +1,19 @@
 <template>
-  <Stregliste />
+  <h1>user</h1>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Stregliste from '@/views/Stregliste.vue'; // @ is an alias to /src
 
 export default defineComponent({
-  name: 'Home',
-  components: {
-    Stregliste,
+  props: {
+    id: String,
   },
   setup() {
     return {};
   },
 });
 </script>
+
+<style>
+</style>
