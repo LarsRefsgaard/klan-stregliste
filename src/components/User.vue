@@ -3,34 +3,22 @@
     <div>
       <h2>{{ user['scout-name'] }}</h2>
     </div>
-    <div class="button-layout">
-      <button>+</button>
-      <button>-</button>
-    </div>
-    <div class="button-layout">
-      <button>+</button>
-      <button>-</button>
-    </div>
+    <AddAndSubtractDrinkButtons />
+    <AddAndSubtractDrinkButtons />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import AddAndSubtractDrinkButtons from './AddAndSubtractDrinkButtons.vue';
 
 export default defineComponent({
   props: {
     user: {},
   },
-  setup(props) {
-    console.log(props.user);
-  },
+  components: { AddAndSubtractDrinkButtons },
 });
 </script>
 
 <style scoped>
- .button-layout {
-  display: grid;
-  grid-template-columns: 1;
-  width: 50%;
- }
 </style>
