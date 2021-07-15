@@ -3,7 +3,14 @@
     <div>
       <h2>{{ user['scout-name'] }}</h2>
     </div>
-
+    <div class="button-layout">
+      <button>+</button>
+      <button>-</button>
+    </div>
+    <div class="button-layout">
+      <button>+</button>
+      <button>-</button>
+    </div>
   </div>
 </template>
 
@@ -20,5 +27,10 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
+ .button-layout {
+  display: grid;
+  grid-template-columns: 1;
+  width: 50%;
+ }
 </style>
