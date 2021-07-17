@@ -1,10 +1,7 @@
 <template>
-  <div class="drinks-layout">
-    <div class="drink-count">0</div>
-    <div class="button-layout">
-      <button>+</button>
-      <button>-</button>
-    </div>
+  <div class="button-layout">
+    <button>+</button>
+    <button>-</button>
   </div>
 </template>
 
@@ -21,21 +18,11 @@ export default defineComponent({
 </script>
 
 <style scoped>
-.drinks-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
-  gap: 20px;
-}
 .button-layout {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
-  justify-content: space-around;
-}
-
-.drink-count {
-  font-size: 4em;
-  font-weight: 800;
+  /* justify-content: space-around; */
 }
 
 button {
@@ -43,7 +30,7 @@ button {
   font-size: 2em;
   width: 48px;
   height: 48px;
-  margin: 0 auto;
+  margin: -6px auto;
   padding: 0;
   background: none;
   border: none;
