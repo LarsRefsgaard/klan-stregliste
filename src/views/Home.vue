@@ -5,16 +5,19 @@
     <div class="center"><h1>Cider</h1></div>
   </div>
   <UserList />
+  <Info />
 </template>
 2
 <script lang="ts">
 import { defineComponent } from 'vue';
-import UserList from '@/components/UserList.vue'; // @ is an alias to /src
+import UserList from '@/components/UserList.vue';
+import Info from '@/components/BottomInfoBar.vue'; // @ is an alias to /src
 
 export default defineComponent({
   name: 'Home',
   components: {
     UserList,
+    Info,
   },
   setup() {
     return {};
