@@ -1,7 +1,7 @@
 <template>
   <div class="button-layout">
-    <button>+</button>
-    <button>-</button>
+    <button @click="addOne">+</button>
+    <button @click="subtractOne">-</button>
   </div>
 </template>
 
@@ -9,6 +9,10 @@
 import { defineComponent } from 'vue';
 
 export default defineComponent({
+  props: {
+    streger: {},
+    drink: String,
+  },
   setup() {
     const addToDrinks = () => ({});
 

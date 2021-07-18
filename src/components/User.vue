@@ -8,7 +8,7 @@
       <DrinkSetter />
     </div>
     <div class="drinks-layout">
-      <DrinkNumber count="2" />
+      <DrinkNumber count="1" />
       <DrinkSetter />
     </div>
   </div>

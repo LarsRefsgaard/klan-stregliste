@@ -1,16 +1,16 @@
  <template>
-  <div class="navbar" v-for="event in events" :key="event.id">
-    <a href="{{event.id}}" class="active">{{event.name}}</a>
+  <div class="navbar">
+    {{ currentEvent.name }}
   </div>
+  <!-- <div class="navbar" v-for="event in events" :key="event.id">
+    <a href="{{event.id}}" class="active">{{ event.name }}</a>
+  </div> -->
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 
 export default defineComponent({
-  props: {
-    events: [],
-  },
   setup() {
     return {};
   },
