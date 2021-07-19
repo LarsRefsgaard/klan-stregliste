@@ -4,11 +4,11 @@
       <h2>{{ user['scout-name'] }}</h2>
     </div>
     <div class="drinks-layout">
-      <DrinkNumber count="1" />
+      <DrinkNumber :count="1" />
       <DrinkSetter />
     </div>
     <div class="drinks-layout">
-      <DrinkNumber count="1" />
+      <DrinkNumber :count="1" />
       <DrinkSetter />
     </div>
   </div>
@@ -23,8 +23,8 @@ export default defineComponent({
   props: {
     user: {},
   },
-  setup() {
-    return {};
+  setup(props) {
+    console.log(props.user);
   },
   components: { DrinkSetter, DrinkNumber },
 });

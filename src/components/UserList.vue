@@ -2,14 +2,13 @@
   <!-- <h2>UserList</h2> -->
   <div v-for="user in users" :key="user.id">
     <hr />
-    <User :user="user" />
+    <User :user="user" :event="event" />
   </div>
   <hr />
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import { getAllUsersFromDatabase } from '@/composables/getUser(s)';
 import User from './User.vue';
 
 export default defineComponent({
@@ -18,8 +17,7 @@ export default defineComponent({
     User,
   },
   setup() {
-    const users = getAllUsersFromDatabase();
-
+    const users = {};
     return { users };
   },
 });

@@ -1,6 +1,6 @@
  <template>
   <div class="navbar">
-    {{ currentEvent.name }}
+    <!-- {{ currentEvent.name }} -->
   </div>
   <!-- <div class="navbar" v-for="event in events" :key="event.id">
     <a href="{{event.id}}" class="active">{{ event.name }}</a>

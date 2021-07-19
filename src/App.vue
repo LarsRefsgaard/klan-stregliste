@@ -1,9 +1,20 @@
 <template>
-  <router-view />
+  <Home />
 </template>
 
-<style>
+<script lang="ts">
+import { defineComponent } from 'vue';
+import Home from '@/components/Home.vue';
 
+export default defineComponent({
+  name: 'App',
+  components: {
+    Home,
+  },
+});
+</script>
+
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
 
 #app {
