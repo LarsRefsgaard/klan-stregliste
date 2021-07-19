@@ -1,19 +1,19 @@
-import { ref } from 'vue';
-import { db } from './fb';
+import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-type CollRef = firebase.default.firestore.CollectionReference;
-type DocRef = firebase.default.firestore.DocumentReference;
-type Query = firebase.default.firestore.Query;
-
-export const getUsers = (): CollRef => db.collection('users');
-export const getEvents = (): CollRef => db.collection('events');
-export const getStregliste = (user: DocRef, event: DocRef): Query => db.collection('stregliste').where('userID', '==', user).where('eventID', '==', event);
-
-export const getUserDocsInArray = () => {
-  const users = ref();
-  (async () => {
-    users.value = await getUsers().get();
-  })();
-  return users;
+const firebaseConfig = {
+  apiKey: 'AIzaSyD9xSOxjMzaU0AIBgy_eto09qwA5DUw9ZE',
+  authDomain: 'klanen-digitalization.firebaseapp.com',
+  projectId: 'klanen-digitalization',
+  storageBucket: 'klanen-digitalization.appspot.com',
+  messagingSenderId: '659774005893',
+  appId: '1:659774005893:web:b65bb8a64d5807bc467fec',
+  measurementId: 'G-QGLNZ6PXSD',
 };
+
+// init firebase
+firebase.initializeApp(firebaseConfig);
+
+// init firestore services
+export const db = firebase.firestore();
+export const timestamp = firebase.firestore.FieldValue.serverTimestamp();

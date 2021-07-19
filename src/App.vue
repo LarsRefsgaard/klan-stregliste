@@ -18,7 +18,7 @@ export default defineComponent({
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
 
 #app {
-  font-family: Roboto, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Arial, Roboto, Avenir, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */

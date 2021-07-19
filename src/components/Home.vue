@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <div class="center"><h1>Name</h1></div>
+    <div class="center" style="text-align: start;"><h1>Name</h1></div>
     <div class="center"><h1>Beer</h1></div>
     <div class="center"><h1>Cider</h1></div>
   </div>
@@ -28,7 +28,7 @@ export default defineComponent({
 <style>
 .layout {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-columns: 4fr 1fr 1fr;
   gap: 20px;
 }
 
@@ -38,6 +38,7 @@ export default defineComponent({
   flex-wrap: nowrap;
   justify-content: center;
   align-content: center;
+  text-align: center;
   /* width: 48px;
   height: 48px; */
 }

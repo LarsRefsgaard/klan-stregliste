@@ -1,15 +1,15 @@
 <template>
   <div class="layout">
-    <div>
-      <h2>{{ user['scout-name'] }}</h2>
+    <div style="display: flex; align-items: center">
+      <h2>{{ user['display-name'] }}</h2>
     </div>
     <div class="drinks-layout">
-      <DrinkNumber :count="1" />
-      <DrinkSetter />
+      <DrinkNumber :count="user.beer" />
+      <DrinkSetter :user="user" drink="beer" />
     </div>
     <div class="drinks-layout">
-      <DrinkNumber :count="1" />
-      <DrinkSetter />
+      <DrinkNumber :count="user.cider" />
+      <DrinkSetter :user="user" drink="cider" />
     </div>
   </div>
 </template>
@@ -23,14 +23,17 @@ export default defineComponent({
   props: {
     user: {},
   },
-  setup(props) {
-    console.log(props.user);
-  },
   components: { DrinkSetter, DrinkNumber },
 });
 </script>
 
 <style scoped>
+h2 {
+  display: flex;
+  font-size: 4em;
+  align-items: center;
+  margin: 0px 0px;
+}
 .drinks-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -1,14 +1,15 @@
 <template>
   <!-- <h2>UserList</h2> -->
-  <div v-for="user in users" :key="user.id">
+  <div v-for="user in stregliste.docs" :key="user.id">
     <hr />
-    <User :user="user" :event="event" />
+    <User :user="{ 'id': user.id, ...user.data() }" />
   </div>
   <hr />
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
+import { db } from '@/db/db';
 import User from './User.vue';
 
 export default defineComponent({
@@ -17,12 +18,18 @@ export default defineComponent({
     User,
   },
   setup() {
-    const users = {};
-    return { users };
+    const stregliste = ref({});
+
+    db.collection('stregliste-mvp').onSnapshot((res) => {
+      // const docs = res.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+      stregliste.value = res;
+      console.log(res);
+    });
+
+    return { stregliste };
   },
 });
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>

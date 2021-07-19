@@ -6,17 +6,30 @@
 </template>
 
 <script lang="ts">
+import { db } from '@/db/db';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
-    streger: {},
+    user: {} as any,
     drink: String,
   },
-  setup() {
-    const addToDrinks = () => ({});
+  setup(props) {
+    const addOne = (drink: string) => {
+      db.collection('stregliste-mvp')
+        .doc(props.user.id)
+        .update({
+          [drink]: props.user[drink] + 1,
+        })
+        .catch((err) => {
+          console.log(err);
+          console.log({
+            [drink]: props.user[drink] + 1,
+          });
+        });
+    };
 
-    return { addToDrinks };
+    return { addOne };
   },
 });
 </script>
@@ -32,11 +45,13 @@ export default defineComponent({
 button {
   font-family: Roboto;
   font-size: 2em;
+  font-weight: 800;
   width: 48px;
   height: 48px;
-  margin: -6px auto;
+  margin: 0px auto;
   padding: 0;
   background: none;
+  color: #2c3e50;
   border: none;
   border-radius: 10%;
   transition: all 0.15s;
