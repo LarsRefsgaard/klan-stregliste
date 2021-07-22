@@ -1,7 +1,11 @@
 <template>
-  <div class="button-layout">
-    <button @click="addOne">+</button>
-    <button @click="subtractOne">-</button>
+  <div class="button-layout; center">
+    <button @click="mutate(drink, true)">
+      <span class="material-icons"> add </span>
+    </button>
+    <button @click="mutate(drink, false)">
+      <span class="material-icons"> remove </span>
+    </button>
   </div>
 </template>
 
@@ -15,21 +19,26 @@ export default defineComponent({
     drink: String,
   },
   setup(props) {
-    const addOne = (drink: string) => {
+    const mutate = (drink: string, isAdd: boolean) => {
+      // eslint-disable-next-line no-nested-ternary
+      const getAmount = (amnt: number) => {
+        if (!amnt) return isAdd ? 0 : 1;
+        return amnt;
+      };
+      const amnt = getAmount(props.user[drink]);
+      const data = {
+        [drink]: amnt + (isAdd ? 1 : -1) || 0,
+      };
+
       db.collection('stregliste-mvp')
         .doc(props.user.id)
-        .update({
-          [drink]: props.user[drink] + 1,
-        })
+        .update(data)
         .catch((err) => {
           console.log(err);
-          console.log({
-            [drink]: props.user[drink] + 1,
-          });
         });
     };
 
-    return { addOne };
+    return { mutate };
   },
 });
 </script>
@@ -44,10 +53,10 @@ export default defineComponent({
 
 button {
   font-family: Roboto;
-  font-size: 2em;
-  font-weight: 800;
-  width: 48px;
-  height: 48px;
+  /* font-size: 8vw; */
+  font-weight: 1000;
+  width: 5vw;
+  height: 5vw;
   margin: 0px auto;
   padding: 0;
   background: none;
@@ -59,10 +68,8 @@ button {
   cursor: pointer;
 }
 button:hover {
-  font-size: 2.5em;
   background: whitesmoke;
 }
-
 /* button {
   background: none;
   border: none;

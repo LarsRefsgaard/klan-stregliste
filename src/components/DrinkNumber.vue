@@ -1,6 +1,6 @@
 <template>
-  <p class="drink-count">
-    {{ count }}
+  <p class="user-text">
+    {{ count || 0 }}
   </p>
 </template>
 
@@ -13,12 +13,3 @@ export default defineComponent({
   },
 });
 </script>
-
-<style>
-.drink-count {
-  font-size: 4em;
-  font-weight: 800;
-  margin: 0px auto;
-  padding: 0px;
-}
-</style>

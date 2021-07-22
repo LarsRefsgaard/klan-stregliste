@@ -2,7 +2,7 @@
   <!-- <h2>UserList</h2> -->
   <div v-for="user in stregliste.docs" :key="user.id">
     <hr />
-    <User :user="{ 'id': user.id, ...user.data() }" />
+    <User :user="{ id: user.id, ...user.data() }" />
   </div>
   <hr />
 </template>
@@ -20,11 +20,11 @@ export default defineComponent({
   setup() {
     const stregliste = ref({});
 
-    db.collection('stregliste-mvp').onSnapshot((res) => {
-      // const docs = res.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-      stregliste.value = res;
-      console.log(res);
-    });
+    db.collection('stregliste-mvp')
+      .orderBy('display-name', 'asc')
+      .onSnapshot((res) => {
+        stregliste.value = res;
+      });
 
     return { stregliste };
   },

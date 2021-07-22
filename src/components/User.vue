@@ -1,7 +1,7 @@
 <template>
   <div class="layout">
-    <div style="display: flex; align-items: center">
-      <h2>{{ user['display-name'] }}</h2>
+    <div>
+      <h2 class="user-text">{{ user['display-name'] }}</h2>
     </div>
     <div class="drinks-layout">
       <DrinkNumber :count="user.beer" />
@@ -27,12 +27,12 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
-h2 {
-  display: flex;
-  font-size: 4em;
-  align-items: center;
-  margin: 0px 0px;
+<style>
+.user-text {
+  font-size: 7vw;
+  font-weight: 800;
+  margin: 0px auto;
+  padding: 0px;
 }
 .drinks-layout {
   display: grid;

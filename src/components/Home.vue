@@ -1,8 +1,14 @@
 <template>
   <div class="layout">
-    <div class="center" style="text-align: start;"><h1>Name</h1></div>
-    <div class="center"><h1>Beer</h1></div>
-    <div class="center"><h1>Cider</h1></div>
+    <div class="center" style="text-align: start">
+      <h1 style="font-size: 5vw;">Name</h1>
+    </div>
+    <div class="center">
+      <h1 style="font-size: 5vw;">Beer</h1>
+    </div>
+    <div class="center">
+      <h1 style="font-size: 5vw;">Cider</h1>
+    </div>
   </div>
   <UserList />
   <Info />
@@ -39,7 +45,5 @@ export default defineComponent({
   justify-content: center;
   align-content: center;
   text-align: center;
-  /* width: 48px;
-  height: 48px; */
 }
 </style>
