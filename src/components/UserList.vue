@@ -1,10 +1,16 @@
 <template>
   <!-- <h2>UserList</h2> -->
-  <div v-for="user in stregliste.docs" :key="user.id">
+  <div class="top-layout">
+    <div class="sub-layout">
+      <h1>Name</h1>
+      <h1>Beer</h1>
+      <h1>Cider</h1>
+    </div>
     <hr />
-    <User :user="{ id: user.id, ...user.data() }" />
+    <div v-for="user in stregliste.docs" :key="user.id" class="sub-layout">
+      <User :user="{ id: user.id, ...user.data() }" />
+    </div>
   </div>
-  <hr />
 </template>
 
 <script lang="ts">
@@ -32,4 +38,18 @@ export default defineComponent({
 </script>
 
 <style scoped>
+h1 {
+  font-size: 5vw;
+  margin: 0;
+}
+.top-layout {
+  display: flex;
+  flex-direction: column;
+}
+
+.sub-layout {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 </style>

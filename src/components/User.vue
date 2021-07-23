@@ -1,16 +1,14 @@
 <template>
-  <div class="layout">
-    <div>
-      <h2 class="user-text">{{ user['display-name'] }}</h2>
-    </div>
-    <div class="drinks-layout">
-      <DrinkNumber :count="user.beer" />
-      <DrinkSetter :user="user" drink="beer" />
-    </div>
-    <div class="drinks-layout">
-      <DrinkNumber :count="user.cider" />
-      <DrinkSetter :user="user" drink="cider" />
-    </div>
+  <div>
+    <h2 class="user-text">{{ user['display-name'] }}</h2>
+  </div>
+  <div class="drinks-layout">
+    <DrinkNumber :count="user.beer" />
+    <DrinkSetter :user="user" drink="beer" />
+  </div>
+  <div class="drinks-layout">
+    <DrinkNumber :count="user.cider" />
+    <DrinkSetter :user="user" drink="cider" />
   </div>
 </template>
 
@@ -27,7 +25,7 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style scoped>
 .user-text {
   font-size: 7vw;
   font-weight: 800;
@@ -35,7 +33,8 @@ export default defineComponent({
   padding: 0px;
 }
 .drinks-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  /* grid-template-columns: 1fr 1fr; */
+  flex-direction: row;
 }
 </style>

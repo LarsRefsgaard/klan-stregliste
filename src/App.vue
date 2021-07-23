@@ -17,7 +17,6 @@ export default defineComponent({
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Roboto');
-
 #app {
   font-family: Arial, Roboto, Avenir, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -37,5 +36,8 @@ export default defineComponent({
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+hr {
+  width: 100%;
 }
 </style>
