@@ -1,5 +1,4 @@
 <template>
-  <!-- <h2>UserList</h2> -->
   <div class="top-layout">
     <div class="sub-layout">
       <h1>Name</h1>
@@ -48,8 +47,11 @@ h1 {
 }
 
 .sub-layout {
-  display: flex;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  /* display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-between; */
 }
 </style>

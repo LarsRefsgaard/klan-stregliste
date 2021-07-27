@@ -51,9 +51,13 @@ export default defineComponent({
   /* justify-content: space-around; */
 }
 
+.material-icons {
+  font-size: 4vw;
+}
+
 button {
   font-family: Roboto;
-  /* font-size: 8vw; */
+  /* font-size: 5vw; */
   font-weight: 1000;
   width: 5vw;
   height: 5vw;
