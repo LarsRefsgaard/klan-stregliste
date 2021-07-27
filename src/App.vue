@@ -1,17 +1,27 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </div>
-  <router-view/>
+  <Home />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 </template>
 
+<script lang="ts">
+import { defineComponent } from 'vue';
+import Home from '@/components/Home.vue';
+
+export default defineComponent({
+  name: 'App',
+  components: {
+    Home,
+  },
+});
+</script>
+
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Roboto');
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: Arial, Roboto, Avenir, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  /* text-align: center; */
   color: #2c3e50;
 }
 
@@ -26,5 +36,8 @@
 
 #nav a.router-link-exact-active {
   color: #42b983;
+}
+hr {
+  width: 100%;
 }
 </style>
