@@ -20,10 +20,6 @@ export default defineComponent({
 </script>
 
 <style>
-.layout {
-  display: flex;
-  flex-direction: row;
-}
 
 .center {
   display: flex;

@@ -48,10 +48,7 @@ h1 {
 
 .sub-layout {
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr;
   grid-template-rows: 1fr;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-between; */
 }
 </style>

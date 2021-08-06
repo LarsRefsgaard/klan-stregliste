@@ -1,5 +1,5 @@
 <template>
-  <p class="user-text">
+  <p class="user-text" style="font-size: 14vw; font-weight: bold;">
     {{ count || 0 }}
   </p>
 </template>

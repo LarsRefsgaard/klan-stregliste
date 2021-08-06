@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="vertically-center">
     <h2 class="user-text">{{ user['display-name'] }}</h2>
   </div>
   <div class="drinks-layout">
@@ -32,9 +32,14 @@ export default defineComponent({
   margin: 0px auto;
   padding: 0px;
 }
+.vertically-center {
+  display: grid;
+  align-content: center;
+  justify-content: start;
+}
+
 .drinks-layout {
   display: flex;
-  /* grid-template-columns: 1fr 1fr; */
   flex-direction: row;
 }
 </style>

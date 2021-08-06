@@ -1,20 +1,6 @@
-export type User = {
+export interface Stregliste {
   id: string;
-  name: string;
-  'scout-name': string;
-};
-
-export type Event = {
-  id: string;
-  name: string;
-  startDate: Date;
-  endDate: Date;
-};
-
-export type Liste = {
-  id: string;
+  'display-name': string;
   beer: number;
   cider: number;
-  eventID: Event;
-  userID: User;
-};
+}
