@@ -25,13 +25,23 @@ export default defineComponent({
 });
 </script>
 
-<style scoped>
+<style>
 .user-text {
-  font-size: 7vw;
+  --drink-number: calc(var(--text-size) * 2);
+  font-size: var(--text-size);
   font-weight: 800;
   margin: 0px auto;
   padding: 0px;
 }
+:root {
+  --text-size: 4vw;
+}
+@media screen and (max-width: 800px) {
+  :root {
+    --text-size: 7vw;
+  }
+}
+
 .vertically-center {
   display: grid;
   align-content: center;

@@ -47,16 +47,28 @@ button {
   margin: 0px auto;
   padding: 0;
   background: none;
-  color: #2c3e50;
+  color: inherit;
   border: none;
   border-radius: 10%;
-  transition: all 0.15s;
+  transition: all 0.3s;
   box-sizing: border-box;
   cursor: pointer;
 }
-button:hover {
-  background: whitesmoke;
+@media (hover: hover) {
+  button:hover {
+    background: whitesmoke;
+  }
 }
+@media screen and (min-width: 800px) {
+  button {
+    width: 5vw;
+    height: 5vw;
+  }
+  .material-icons {
+   font-size: 4vw;
+  }
+}
+
 /* button {
   background: none;
   border: none;
@@ -75,7 +87,6 @@ button {
   background: none;
   border: none;
   border-radius: 10%;
-  transition: all 0.3s;
   box-sizing: border-box;
   width: 1em;
   height: 1em;

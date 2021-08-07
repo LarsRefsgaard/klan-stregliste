@@ -1,5 +1,5 @@
 <template>
-  <p class="user-text" style="font-size: 14vw; font-weight: bold;">
+  <p class="user-text" style="font-size: var(--drink-number)" >
     {{ count || 0 }}
   </p>
 </template>
