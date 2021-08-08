@@ -9,7 +9,6 @@ export const getUsers = (): Stregliste[] => {
       (user) => ({ ...user.data, id: user.id } as Stregliste),
     );
   })();
-  console.log(users);
   return users;
 };
 

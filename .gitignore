@@ -2,7 +2,7 @@
 node_modules
 /dist
 .firebase
-.firebase/hosting.ZGlzdA.cache
+firestore.rules
 
 # local env files
 .env.local

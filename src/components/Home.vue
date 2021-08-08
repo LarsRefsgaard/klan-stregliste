@@ -20,7 +20,6 @@ export default defineComponent({
 </script>
 
 <style>
-
 .center {
   display: flex;
   flex-direction: column;

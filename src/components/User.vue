@@ -1,6 +1,8 @@
 <template>
   <div class="vertically-center">
-    <h2 class="user-text">{{ user['display-name'] }}</h2>
+    <h2 class="user-text">
+      {{ user['display-name'] }}
+    </h2>
   </div>
   <div class="drinks-layout">
     <DrinkNumber :count="user.beer" />
@@ -14,14 +16,24 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { Stregliste } from '@/db/schema';
 import DrinkSetter from './DrinkSetter.vue';
 import DrinkNumber from './DrinkNumber.vue';
 
 export default defineComponent({
-  props: {
-    user: {},
-  },
   components: { DrinkSetter, DrinkNumber },
+  props: {
+    user: {
+      type: Object as never,
+      default() {
+        return {
+          'display-name': '',
+          beer: 0,
+          cider: 0,
+        } as Stregliste;
+      },
+    },
+  },
 });
 </script>
 

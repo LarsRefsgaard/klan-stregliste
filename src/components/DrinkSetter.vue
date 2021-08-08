@@ -15,8 +15,12 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
-    user: {} as never,
-    drink: String,
+    // eslint-disable-next-line vue/require-default-prop
+    user: Object as never,
+    drink: {
+      type: String,
+      default: '',
+    },
   },
   setup(props) {
     const mutate = addToDrink(props);
@@ -65,7 +69,7 @@ button {
     height: 5vw;
   }
   .material-icons {
-   font-size: 4vw;
+    font-size: 4vw;
   }
 }
 
