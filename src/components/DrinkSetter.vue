@@ -60,7 +60,12 @@ button {
 }
 @media (hover: hover) {
   button:hover {
-    background: whitesmoke;
+    background: #1e2021;
+  }
+  @media (prefers-color-scheme: light) {
+    button:hover {
+      background: whitesmoke;
+    }
   }
 }
 @media screen and (min-width: 800px) {
