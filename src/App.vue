@@ -1,6 +1,6 @@
 <template>
   <Home />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </template>
 
 <script lang="ts">
@@ -22,21 +22,23 @@ export default defineComponent({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   /* text-align: center; */
-  color: #2c3e50;
+  background: #181a1b;
+  color: #aec2d3;
+}
+html {
+  background: #181a1b;
 }
 
-#nav {
-  padding: 30px;
+@media (prefers-color-scheme: light) {
+  html {
+    background: #fff;
+  }
+  #app {
+    color: #2c3e50;
+    background: #ffffff;
+  }
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 hr {
   width: 100%;
 }

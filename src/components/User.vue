@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <h2 class="user-text">{{ user['display-name'] }}</h2>
+  <div class="vertically-center">
+    <h2 class="user-text">
+      {{ user['display-name'] }}
+    </h2>
   </div>
   <div class="drinks-layout">
     <DrinkNumber :count="user.beer" />
@@ -14,27 +16,52 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import { Stregliste } from '@/db/schema';
 import DrinkSetter from './DrinkSetter.vue';
 import DrinkNumber from './DrinkNumber.vue';
 
 export default defineComponent({
-  props: {
-    user: {},
-  },
   components: { DrinkSetter, DrinkNumber },
+  props: {
+    user: {
+      type: Object as never,
+      default() {
+        return {
+          'display-name': '',
+          beer: 0,
+          cider: 0,
+        } as Stregliste;
+      },
+    },
+  },
 });
 </script>
 
-<style scoped>
+<style>
 .user-text {
-  font-size: 7vw;
+  --drink-number: calc(var(--text-size) * 2);
+  font-size: var(--text-size);
   font-weight: 800;
   margin: 0px auto;
   padding: 0px;
 }
+:root {
+  --text-size: 4vw;
+}
+@media screen and (max-width: 800px) {
+  :root {
+    --text-size: 7vw;
+  }
+}
+
+.vertically-center {
+  display: grid;
+  align-content: center;
+  justify-content: start;
+}
+
 .drinks-layout {
   display: flex;
-  /* grid-template-columns: 1fr 1fr; */
   flex-direction: row;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <p class="user-text">
+  <p class="user-text" style="font-size: var(--drink-number)">
     {{ count || 0 }}
   </p>
 </template>
@@ -9,7 +9,11 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
-    count: Number,
+    count: {
+      type: Number,
+      required: true,
+      default: 0,
+    },
   },
 });
 </script>

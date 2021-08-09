@@ -10,33 +10,20 @@
 </template>
 
 <script lang="ts">
-import { db } from '@/db/db';
+import { addToDrink } from '@/db/actions';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
   props: {
-    user: {} as any,
-    drink: String,
+    // eslint-disable-next-line vue/require-default-prop
+    user: Object as never,
+    drink: {
+      type: String,
+      default: '',
+    },
   },
   setup(props) {
-    const mutate = (drink: string, isAdd: boolean) => {
-      // eslint-disable-next-line no-nested-ternary
-      const getAmount = (amnt: number) => {
-        if (!amnt) return isAdd ? 0 : 1;
-        return amnt;
-      };
-      const amnt = getAmount(props.user[drink]);
-      const data = {
-        [drink]: amnt + (isAdd ? 1 : -1) || 0,
-      };
-
-      db.collection('stregliste-mvp')
-        .doc(props.user.id)
-        .update(data)
-        .catch((err) => {
-          console.log(err);
-        });
-    };
+    const mutate = addToDrink(props);
 
     return { mutate };
   },
@@ -52,28 +39,40 @@ export default defineComponent({
 }
 
 .material-icons {
-  font-size: 4vw;
+  font-size: 6vw;
+  font-weight: bold;
 }
 
 button {
   font-family: Roboto;
-  /* font-size: 5vw; */
   font-weight: 1000;
-  width: 5vw;
-  height: 5vw;
+  width: 8vw;
+  height: 8vw;
   margin: 0px auto;
   padding: 0;
   background: none;
-  color: #2c3e50;
+  color: inherit;
   border: none;
   border-radius: 10%;
-  transition: all 0.15s;
+  transition: all 0.3s;
   box-sizing: border-box;
   cursor: pointer;
 }
-button:hover {
-  background: whitesmoke;
+@media (hover: hover) {
+  button:hover {
+    background: whitesmoke;
+  }
 }
+@media screen and (min-width: 800px) {
+  button {
+    width: 5vw;
+    height: 5vw;
+  }
+  .material-icons {
+    font-size: 4vw;
+  }
+}
+
 /* button {
   background: none;
   border: none;
@@ -92,7 +91,6 @@ button {
   background: none;
   border: none;
   border-radius: 10%;
-  transition: all 0.3s;
   box-sizing: border-box;
   width: 1em;
   height: 1em;

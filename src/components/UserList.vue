@@ -1,11 +1,6 @@
 <template>
   <div class="top-layout">
-    <div class="sub-layout">
-      <h1>Name</h1>
-      <h1>Beer</h1>
-      <h1>Cider</h1>
-    </div>
-    <hr />
+    <StickyHeader />
     <div v-for="user in stregliste.docs" :key="user.id" class="sub-layout">
       <User :user="{ id: user.id, ...user.data() }" />
     </div>
@@ -16,11 +11,13 @@
 import { defineComponent, ref } from 'vue';
 import { db } from '@/db/db';
 import User from './User.vue';
+import StickyHeader from './StickyHeader.vue';
 
 export default defineComponent({
   name: 'UserList',
   components: {
     User,
+    StickyHeader,
   },
   setup() {
     const stregliste = ref({});
@@ -37,10 +34,6 @@ export default defineComponent({
 </script>
 
 <style scoped>
-h1 {
-  font-size: 5vw;
-  margin: 0;
-}
 .top-layout {
   display: flex;
   flex-direction: column;
@@ -48,10 +41,12 @@ h1 {
 
 .sub-layout {
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr;
+  grid-template-columns: 3fr 1fr 1fr;
   grid-template-rows: 1fr;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-between; */
+}
+@media screen and (min-width: 800px) {
+  .top-layout {
+    padding: 0 10%;
+  }
 }
 </style>
