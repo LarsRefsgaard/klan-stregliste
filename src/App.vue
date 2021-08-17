@@ -3,16 +3,8 @@
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
 import Home from '@/components/Home.vue';
-
-export default defineComponent({
-  name: 'App',
-  components: {
-    Home,
-  },
-});
 </script>
 
 <style>

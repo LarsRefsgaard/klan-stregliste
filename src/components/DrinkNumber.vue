@@ -4,16 +4,9 @@
   </p>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  props: {
-    count: {
-      type: Number,
-      required: true,
-      default: 0,
-    },
-  },
+<script setup lang="ts">
+// eslint-disable-next-line no-undef
+const props = defineProps({
+  count: Number,
 });
 </script>

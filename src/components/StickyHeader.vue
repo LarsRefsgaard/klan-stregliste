@@ -6,34 +6,26 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+const header = document.getElementById('stick');
 
-export default defineComponent({
-  setup() {
-    const header = document.getElementById('stick');
+const sticky = header?.offsetTop;
 
-    const sticky = header?.offsetTop;
-
-    function handleScroll(): void {
-      if (typeof sticky !== 'undefined') {
-        if (window.pageYOffset > sticky) {
-          // eslint-disable-next-line no-unused-expressions
-          header?.classList.add('sticky-header');
-        }
-        // eslint-disable-next-line no-unused-expressions
-        header?.classList.remove('sticky-header');
-      }
-      console.log('hi');
-    }
-    window.onscroll = () => {
+function handleScroll(): void {
+  if (typeof sticky !== 'undefined') {
+    if (window.pageYOffset > sticky) {
       // eslint-disable-next-line no-unused-expressions
-      handleScroll;
-    };
-
-    return { handleScroll };
-  },
-});
+      header?.classList.add('sticky-header');
+    }
+    // eslint-disable-next-line no-unused-expressions
+    header?.classList.remove('sticky-header');
+  }
+  console.log('hi');
+}
+window.onscroll = () => {
+  // eslint-disable-next-line no-unused-expressions
+  handleScroll;
+};
 </script>
 
 <style scoped>

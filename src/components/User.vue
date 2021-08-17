@@ -14,25 +14,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { Stregliste } from '@/db/schema';
+<script setup lang="ts">
 import DrinkSetter from './DrinkSetter.vue';
 import DrinkNumber from './DrinkNumber.vue';
 
-export default defineComponent({
-  components: { DrinkSetter, DrinkNumber },
-  props: {
-    user: {
-      type: Object as never,
-      default() {
-        return {
-          'display-name': '',
-          beer: 0,
-          cider: 0,
-        } as Stregliste;
-      },
-    },
+// eslint-disable-next-line no-undef
+const props = defineProps({
+  // eslint-disable-next-line
+  user: {
+    type: Object,
   },
 });
 </script>
