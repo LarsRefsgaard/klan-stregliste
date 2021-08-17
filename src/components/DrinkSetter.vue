@@ -9,25 +9,19 @@
   </div>
 </template>
 
-<script lang="ts">
+<script setup lang="ts">
 import { addToDrink } from '@/db/actions';
-import { defineComponent } from 'vue';
 
-export default defineComponent({
-  props: {
-    // eslint-disable-next-line vue/require-default-prop
-    user: Object as never,
-    drink: {
-      type: String,
-      default: '',
-    },
-  },
-  setup(props) {
-    const mutate = addToDrink(props);
-
-    return { mutate };
+// eslint-disable-next-line no-undef
+const props = defineProps({
+  user: Object,
+  drink: {
+    type: String,
+    default: '',
   },
 });
+
+const mutate = addToDrink(props);
 </script>
 
 <style scoped>

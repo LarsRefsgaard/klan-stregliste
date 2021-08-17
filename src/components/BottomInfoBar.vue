@@ -7,16 +7,6 @@
   </div> -->
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-
-export default defineComponent({
-  setup() {
-    return {};
-  },
-});
-</script>
-
  <style scoped>
 .navbar {
   background-color: rgb(214, 214, 214);

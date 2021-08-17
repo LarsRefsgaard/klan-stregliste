@@ -7,30 +7,19 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script setup lang="ts">
+import { ref } from 'vue';
 import { db } from '@/db/db';
 import User from './User.vue';
 import StickyHeader from './StickyHeader.vue';
 
-export default defineComponent({
-  name: 'UserList',
-  components: {
-    User,
-    StickyHeader,
-  },
-  setup() {
-    const stregliste = ref({});
+const stregliste = ref({});
 
-    db.collection('stregliste-mvp')
-      .orderBy('display-name', 'asc')
-      .onSnapshot((res) => {
-        stregliste.value = res;
-      });
-
-    return { stregliste };
-  },
-});
+db.collection('stregliste-mvp')
+  .orderBy('display-name', 'asc')
+  .onSnapshot((res) => {
+    stregliste.value = res;
+  });
 </script>
 
 <style scoped>
