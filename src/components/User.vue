@@ -20,7 +20,6 @@ import DrinkNumber from './DrinkNumber.vue';
 
 // eslint-disable-next-line no-undef
 const props = defineProps({
-  // eslint-disable-next-line
   user: {
     type: Object,
   },
