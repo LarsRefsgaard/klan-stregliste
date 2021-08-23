@@ -5,7 +5,7 @@ export const getUsers = (): Stregliste[] => {
   let users: Stregliste[] = [];
 
   (async () => {
-    users = (await db.collection('stregliste-mvp').get()).docs.map(
+    users = (await db.collection(process.env.VUE_APP_DATABASE_COLLECTION).get()).docs.map(
       (user) => ({ ...user.data, id: user.id } as Stregliste),
     );
   })();
@@ -27,7 +27,7 @@ export function addToDrink(props: Readonly<{ user: Stregliste; drink: string | u
       [drink]: amnt + (isAdd ? 1 : -1) || 0,
     };
 
-    db.collection('stregliste-mvp')
+    db.collection(process.env.VUE_APP_DATABASE_COLLECTION)
       .doc(props.user.id)
       .update(data)
       .catch((err) => {
@@ -56,7 +56,7 @@ export const initStreglisteMVP = (): void => {
 };
 
 export const resetStreglisteMVP = (): void => {
-  db.collection('stregliste-mvp')
+  db.collection(process.env.VUE_APP_DATABASE_COLLECTION)
     .get()
     .then((users) => {
       users.forEach((user) => {
@@ -73,7 +73,7 @@ interface User {
 export const exportStreglisteMVP = (): User[] => {
   // eslint-disable-next-line
   const result: User[] = [];
-  db.collection('stregliste-mvp')
+  db.collection(process.env.VUE_APP_DATABASE_COLLECTION)
     .get()
     .then((users) => {
       users.forEach((user) => {
