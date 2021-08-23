@@ -1,10 +1,10 @@
 <template>
   <div class="button-layout; center">
     <button @click="mutate(drink, true)">
-      <span class="material-icons"> add </span>
+      <span class="material-icons-round"> add </span>
     </button>
     <button @click="mutate(drink, false)">
-      <span class="material-icons"> remove </span>
+      <span class="material-icons-round"> remove </span>
     </button>
   </div>
 </template>
@@ -32,7 +32,7 @@ const mutate = addToDrink(props);
   /* justify-content: space-around; */
 }
 
-.material-icons {
+.material-icons-round {
   font-size: 6vw;
   font-weight: bold;
 }
@@ -67,7 +67,7 @@ button {
     width: 5vw;
     height: 5vw;
   }
-  .material-icons {
+  .material-icons-round {
     font-size: 4vw;
   }
 }
