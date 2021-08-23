@@ -1,6 +1,6 @@
 <template>
   <Home />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 </template>
 
 <script setup lang="ts">
