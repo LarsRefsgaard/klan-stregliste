@@ -17,14 +17,8 @@ import Home from '@/components/Home.vue';
   background: #181a1b;
   color: #aec2d3;
 }
-html {
-  background: #181a1b;
-}
 
 @media (prefers-color-scheme: light) {
-  html {
-    background: #fff;
-  }
   #app {
     color: #2c3e50;
     background: #ffffff;
@@ -33,5 +27,10 @@ html {
 
 hr {
   width: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
 </style>
