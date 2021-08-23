@@ -15,7 +15,7 @@ import StickyHeader from './StickyHeader.vue';
 
 const stregliste = ref({});
 
-db.collection('stregliste-mvp')
+db.collection(process.env.VUE_APP_DATABASE_COLLECTION)
   .orderBy('display-name', 'asc')
   .onSnapshot((res) => {
     stregliste.value = res;
