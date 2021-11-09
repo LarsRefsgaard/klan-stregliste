@@ -1,5 +1,9 @@
-.DS_Store
 node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+.DS_Store
 /dist
 .firebase
 firestore.rules
