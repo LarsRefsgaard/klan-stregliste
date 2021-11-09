@@ -8,7 +8,9 @@ module.exports = {
 		'plugin:vue/vue3-recommended',
 		'@vue/typescript/recommended',
 		'prettier',
+		'plugin:cypress/recommended',
 	],
+	plugins: ['cypress'],
 	parserOptions: {
 		ecmaVersion: 'ESNEXT',
 	},
@@ -20,12 +22,13 @@ module.exports = {
 				multiline: 3,
 			},
 		],
-		'vue/script-setup-uses-vars': 'error',
+		'vue/script-setup-uses-vars': 0,
 	},
 	globals: {
 		defineProps: 'readonly',
 		defineEmits: 'readonly',
 		defineExpose: 'readonly',
 		withDefaults: 'readonly',
+		'cypress/globals': true,
 	},
 };

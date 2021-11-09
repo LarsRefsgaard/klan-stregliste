@@ -1,9 +1,9 @@
 <template>
 	<div class="button-layout; center">
-		<button @click="mutate(drink, true)">
+		<button :data-cy="`add ${user['display-name']} ${drink}`" @click="mutate(drink, true)">
 			<span class="material-icons-round">add</span>
 		</button>
-		<button @click="mutate(drink, false)">
+		<button :data-cy="`remove ${user['display-name']} ${drink}`" @click="mutate(drink, false)">
 			<span class="material-icons-round">remove</span>
 		</button>
 	</div>
