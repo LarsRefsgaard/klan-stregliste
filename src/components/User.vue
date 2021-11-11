@@ -1,13 +1,13 @@
-<template>
-  <div class="vertically-center">
+<template >
+  <div data-cy="name" class="vertically-center">
     <h2 class="user-text">{{ user['display-name'] }}</h2>
   </div>
-  <div class="drinks-layout">
-    <DrinkNumber :data-cy="`${user['display-name']} beer`" :count="user.beer" />
+  <div data-cy="beer" class="drinks-layout">
+    <DrinkNumber  :count="user.beer" />
     <DrinkSetter :user="user" drink="beer" />
   </div>
-  <div class="drinks-layout">
-    <DrinkNumber :data-cy="`${user['display-name']} cider`" :count="user.cider" />
+  <div data-cy="cider" class="drinks-layout">
+    <DrinkNumber :count="user.cider" />
     <DrinkSetter :user="user" drink="cider" />
   </div>
 </template>
