@@ -17,14 +17,14 @@ import { ref } from 'vue';
 import { db } from '../db/db';
 import User from './User.vue';
 import StickyHeader from './StickyHeader.vue';
+import { onSnapshot, query, orderBy } from '@firebase/firestore';
 
 const stregliste = ref<Record<string, any>>({});
 
-db.collection(import.meta.env.VITE_APP_DATABASE_COLLECTION as string)
-  .orderBy('display-name', 'asc')
-  .onSnapshot((res) => {
-    stregliste.value = res;
-  });
+onSnapshot(query(db, orderBy('display-name')), (querySnapshot) => {
+  stregliste.value = querySnapshot;
+});
+
 </script>
 
 <style scoped>
