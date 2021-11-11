@@ -1,5 +1,6 @@
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+
+import { getFirestore, collection } from 'firebase/firestore';
 
 const firebaseConfig = {
 	apiKey: 'AIzaSyD9xSOxjMzaU0AIBgy_eto09qwA5DUw9ZE',
@@ -12,8 +13,10 @@ const firebaseConfig = {
 };
 
 // init firebase
-firebase.initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 // init firestore services
-export const db = firebase.firestore();
-export const timestamp = firebase.firestore.FieldValue.serverTimestamp();
+export const db = collection(
+	getFirestore(),
+	import.meta.env.VITE_APP_DATABASE_COLLECTION as string,
+);

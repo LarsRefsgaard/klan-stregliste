@@ -1,82 +1,82 @@
 <template>
-	<div class="button-layout; center">
-		<button data-cy="add" @click="mutate(drink, true)">
-			<span class="material-icons-round">add</span>
-		</button>
-		<button data-cy="remove" @click="mutate(drink, false)">
-			<span class="material-icons-round">remove</span>
-		</button>
-	</div>
+  <div class="button-layout; center">
+    <button data-cy="add" @click="mutate(drink, a => a + 1)">
+      <span class="material-icons-round">add</span>
+    </button>
+    <button data-cy="remove" @click="mutate(drink, a => a ? a - 1 : a)">
+      <span class="material-icons-round">remove</span>
+    </button>
+  </div>
 </template>
 
 <script setup lang="ts">
-	import { addToDrink } from '../db/actions';
-	import { drinks, Stregliste } from '../db/schema';
+import { addToDrink } from '../db/actions';
+import { drinks, Stregliste } from '../db/schema';
 
-	interface Props {
-		user: Stregliste;
-		drink: drinks;
-	}
-	const props = defineProps<Props>();
+interface Props {
+  user: Stregliste;
+  drink: drinks;
+}
+const props = defineProps<Props>();
 
-	const mutate = addToDrink(props);
+const mutate = addToDrink(props);
 </script>
 
 <style scoped>
-	.button-layout {
-		display: flex;
-		flex-direction: column;
-		flex-wrap: nowrap;
-		/* justify-content: space-around; */
-	}
+.button-layout {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  /* justify-content: space-around; */
+}
 
-	.material-icons-round {
-		font-size: 6vw;
-		font-weight: bold;
-	}
+.material-icons-round {
+  font-size: 6vw;
+  font-weight: bold;
+}
 
-	button {
-		font-family: Roboto;
-		font-weight: 1000;
-		width: 8vw;
-		height: 8vw;
-		margin: 0px auto;
-		padding: 0;
-		background: none;
-		color: inherit;
-		border: none;
-		border-radius: 10%;
-		transition: all 0.3s;
-		box-sizing: border-box;
-		cursor: pointer;
-	}
-	@media (hover: hover) {
-		button:hover {
-			background: #1e2021;
-		}
-		@media (prefers-color-scheme: light) {
-			button:hover {
-				background: whitesmoke;
-			}
-		}
-	}
-	@media screen and (min-width: 800px) {
-		button {
-			width: 5vw;
-			height: 5vw;
-		}
-		.material-icons-round {
-			font-size: 4vw;
-		}
-	}
+button {
+  font-family: Roboto;
+  font-weight: 1000;
+  width: 8vw;
+  height: 8vw;
+  margin: 0px auto;
+  padding: 0;
+  background: none;
+  color: inherit;
+  border: none;
+  border-radius: 10%;
+  transition: all 0.3s;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+@media (hover: hover) {
+  button:hover {
+    background: #1e2021;
+  }
+  @media (prefers-color-scheme: light) {
+    button:hover {
+      background: whitesmoke;
+    }
+  }
+}
+@media screen and (min-width: 800px) {
+  button {
+    width: 5vw;
+    height: 5vw;
+  }
+  .material-icons-round {
+    font-size: 4vw;
+  }
+}
 
-	/* button {
+/* button {
   background: none;
   border: none;
   font-size: 5em;
   padding: 0;
 } */
-	/*
+/*
 button {
   font-family: Roboto;
   font-size: 2.5em;
