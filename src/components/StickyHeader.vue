@@ -1,43 +1,40 @@
 <template>
-	<div id="stick" class="sub-layout">
-		<h1>Name</h1>
-		<h1>Beer</h1>
-		<h1>Cider</h1>
-	</div>
+  <div class="top-0 grid w-full grid-rows-1 py-4 font-bold sub-layout">
+    <p>Name</p>
+    <p class="ml-auto mr-2 md:mr-4">Beer</p>
+    <p class="ml-auto mr-2">Cider</p>
+  </div>
+  <hr class="pb-2" />
 </template>
 
 <script setup lang="ts">
-	const header = document.getElementById('stick');
+const header = document.getElementById('stick');
 
-	const sticky = header?.offsetTop;
+const sticky = header?.offsetTop;
 
-	function handleScroll(): void {
-		if (typeof sticky !== 'undefined') {
-			if (window.pageYOffset > sticky) {
-				// eslint-disable-next-line no-unused-expressions
-				header?.classList.add('sticky-header');
-			}
-			// eslint-disable-next-line no-unused-expressions
-			header?.classList.remove('sticky-header');
-		}
-		console.log('hi');
-	}
-	window.onscroll = () => {
-		// eslint-disable-next-line no-unused-expressions
-		handleScroll;
-	};
+function handleScroll(): void {
+  if (typeof sticky !== 'undefined') {
+    if (window.pageYOffset > sticky) {
+      // eslint-disable-next-line no-unused-expressions
+      header?.classList.add('sticky-header');
+    }
+    // eslint-disable-next-line no-unused-expressions
+    header?.classList.remove('sticky-header');
+  }
+  console.log('hi');
+}
+window.onscroll = () => {
+  // eslint-disable-next-line no-unused-expressions
+  handleScroll;
+};
 </script>
 
 <style scoped>
-	h1 {
-		font-size: calc(var(--text-size) - 0.5vw);
-		margin: 0;
-	}
+.sub-layout {
+  grid-template-columns: 2fr 1fr 1fr;
+}
 
-	.sticky-header {
-		position: fixed;
-		top: 0;
-		width: 100%;
-		background: #fff;
-	}
+p {
+  font-size: calc(var(--text-size) - 0.5vw);
+}
 </style>

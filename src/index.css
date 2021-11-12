@@ -1,0 +1,24 @@
+/* ./src/index.css */
+@tailwind base;
+
+@layer base {
+	body {
+		@apply px-2 mb-80 md:py-0 md:px-1/20;
+	}
+	button {
+		@apply box-border p-0 m-0 font-extrabold border-transparent rounded-md cursor-pointer focus:ring;
+		@apply bg-opacity-30 hover:bg-gray-200 dark:hover:bg-gray-700;
+		@apply transition-all duration-300 ease-in-out;
+		width: 8vw;
+		height: 8vw;
+		color: inherit;
+		touch-action: manipulation;
+	}
+
+	p {
+		@apply leading-none;
+	}
+}
+
+@tailwind components;
+@tailwind utilities;
