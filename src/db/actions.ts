@@ -15,7 +15,7 @@ export const getUsers = () => {
 export const addToDrink =
 	(props: Readonly<{ user: Stregliste; drink: drinks }>) =>
 	(drink: drinks, mutater: (a: number) => number) => {
-		const data = { [drink]: mutater(props.user[drink]) };
+		const data = { [drink]: mutater(props.user[drink] || 0) };
 
 		updateDoc(doc(db, props.user.id), data).catch((err) => console.log(err));
 	};
