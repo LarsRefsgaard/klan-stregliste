@@ -1,8 +1,9 @@
 <template>
-  <div class="top-0 w-full py-4 font-bold grid grid-rows-1 sub-layout">
-    <p>Name</p>
-    <p class="ml-auto mr-2 md:mr-4">Beer</p>
-    <p class="ml-auto mr-2">Cider</p>
+  <div class="top-0 w-full py-4 font-bold flex gap-2 sm:gap-4
+  md:gap-16 xl:gap-20">
+    <p class="flex-grow-[2] align-middle">Name</p>
+    <p class="flex-grow-1">Beer</p>
+    <p class="flex-grow-1">Cider</p>
   </div>
   <hr />
 </template>
@@ -30,10 +31,6 @@ window.onscroll = () => {
 </script>
 
 <style scoped>
-.sub-layout {
-  grid-template-columns: 2fr 1fr 1fr;
-}
-
 p {
   font-size: calc(var(--text-size) - 0.5vw);
 }

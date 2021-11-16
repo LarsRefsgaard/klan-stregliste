@@ -5,7 +5,7 @@
       v-for="user in stregliste.docs"
       :key="user.id"
       :data-cy="user.data()['display-name']"
-      class="grid grid-rows-1 sub-layout"
+      class="flex flex-row"
     >
       <User :user="{ id: user.id, ...user.data() }" />
     </div>

@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, query, updateDoc } from '@firebase/firestore';
+import { doc, getDocs, query, updateDoc } from '@firebase/firestore';
 import { db } from './db';
 import { drinks, Stregliste } from './schema';
 
