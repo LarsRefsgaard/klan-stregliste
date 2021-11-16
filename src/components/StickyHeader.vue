@@ -1,10 +1,10 @@
 <template>
-  <div class="top-0 grid w-full grid-rows-1 py-4 font-bold sub-layout">
+  <div class="top-0 w-full py-4 font-bold grid grid-rows-1 sub-layout">
     <p>Name</p>
     <p class="ml-auto mr-2 md:mr-4">Beer</p>
     <p class="ml-auto mr-2">Cider</p>
   </div>
-  <hr class="pb-2" />
+  <hr />
 </template>
 
 <script setup lang="ts">
