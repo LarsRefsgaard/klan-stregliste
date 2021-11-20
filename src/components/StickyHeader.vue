@@ -1,37 +1,36 @@
 <template>
-  <div class="top-0 w-full py-4 font-bold flex gap-2 sm:gap-4
-  md:gap-16 xl:gap-20">
-    <p class="flex-grow-[2] align-middle">Name</p>
-    <p class="flex-grow-1">Beer</p>
-    <p class="flex-grow-1">Cider</p>
+  <div
+    id="stick"
+    class="font-bold sticky top-0 w-full py-4 dark:bg-nord0 bg-nord6 grid grid-rows-1 sub-layout transition-all duration-300"
+  >
+    <p>Name</p>
+    <p class="ml-auto mr-2 md:mr-4">Beer</p>
+    <p class="ml-auto mr-2">Cider</p>
   </div>
   <hr />
 </template>
 
 <script setup lang="ts">
-const header = document.getElementById('stick');
+window.onscroll = () => { scrollFunction() };
 
-const sticky = header?.offsetTop;
-
-function handleScroll(): void {
-  if (typeof sticky !== 'undefined') {
-    if (window.pageYOffset > sticky) {
-      // eslint-disable-next-line no-unused-expressions
-      header?.classList.add('sticky-header');
+const scrollFunction = () => {
+  const header = document.getElementById("stick");
+  if (header) {
+    if (document.documentElement.scrollTop > 50) {
+      header.style.fontSize = "calc(var(--text-size) - 0.5vw * 4)"
+    } else {
+      header.style.fontSize = "calc(var(--text-size) - 0.5vw)"
     }
-    // eslint-disable-next-line no-unused-expressions
-    header?.classList.remove('sticky-header');
   }
-  console.log('hi');
 }
-window.onscroll = () => {
-  // eslint-disable-next-line no-unused-expressions
-  handleScroll;
-};
 </script>
 
 <style scoped>
-p {
-  font-size: calc(var(--text-size) - 0.5vw);
+.sub-layout {
+  grid-template-columns: 9fr 2fr 2fr;
 }
+
+/* p {
+  font-size: calc(var(--text-size) - 0.5vw);
+} */
 </style>
