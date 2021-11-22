@@ -30,7 +30,7 @@ const scrollFunction = () => {
   grid-template-columns: 9fr 2fr 2fr;
 }
 
-/* p {
+#stick {
   font-size: calc(var(--text-size) - 0.5vw);
-} */
+}
 </style>
