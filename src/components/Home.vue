@@ -3,7 +3,6 @@
 </template>
 <script setup lang="ts">
 import UserList from '../components/UserList.vue';
-import Info from './SideBar.vue'; // @ is an alias to /src
 </script>
 
 <style>

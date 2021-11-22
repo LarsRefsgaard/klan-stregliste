@@ -1,36 +1,51 @@
 <template>
   <div
-    id="stick"
-    class="font-bold sticky top-0 w-full py-4 dark:bg-nord0 bg-nord6 grid grid-rows-1 sub-layout transition-all duration-300"
+    ref="stick_header"
+    class="sticky top-0 flex flex-row w-full py-4 font-bold transition-all duration-300 dark:bg-nord0 bg-nord6 fontsize center"
+    @click="changeSize"
   >
-    <p>Name</p>
-    <p class="ml-auto mr-8">Beer</p>
-    <p class="ml-auto mr-2">Cider</p>
+    <span>Name</span>
+    <span ref="beer" class="ml-auto">Beer</span>
+    <span ref="cider">Cider</span>
   </div>
   <hr />
 </template>
 
 <script setup lang="ts">
-window.onscroll = () => { scrollFunction() };
+import { ref, onMounted } from 'vue';
+
+const beer = ref<HTMLElement | null>(null);
+const cider = ref<HTMLElement | null>(null);
+const stick_header = ref<HTMLElement | null>(null);
+
+const changeSize = () => {
+  const element = document.getElementById('pseudo-element');
+  const beerSize = element?.children[1].clientWidth;
+  const ciderSize = element?.children[2].clientWidth;
+  console.log(element);
+  if (beer.value) beer.value.style.width = `${beerSize}px`;
+  if (cider.value) cider.value.style.width = `${ciderSize}px`;
+}
 
 const scrollFunction = () => {
-  const header = document.getElementById("stick");
-  if (header) {
+  if (stick_header.value) {
     if (document.documentElement.scrollTop > 50) {
-      header.style.fontSize = "calc(var(--text-size) - 0.5vw * 4)"
+      stick_header.value.style.fontSize = "calc(var(--text-size) - 0.5vw * 4)"
+      stick_header.value.style.paddingBottom = '0.5rem'
     } else {
-      header.style.fontSize = "calc(var(--text-size) - 0.5vw)"
+      stick_header.value.style.paddingBottom = '1rem'
+      stick_header.value.style.fontSize = "calc(var(--text-size) - 0.5vw)"
     }
   }
 }
+window.onscroll = scrollFunction;
+onMounted(changeSize);
+window.onresize = changeSize;
 </script>
 
 <style scoped>
-.sub-layout {
-  grid-template-columns: 9fr 2fr 2fr;
-}
 
-#stick {
+.fontsize {
   font-size: calc(var(--text-size) - 0.5vw);
 }
 </style>
