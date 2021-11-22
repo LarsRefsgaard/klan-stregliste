@@ -4,7 +4,7 @@
     class="font-bold sticky top-0 w-full py-4 dark:bg-nord0 bg-nord6 grid grid-rows-1 sub-layout transition-all duration-300"
   >
     <p>Name</p>
-    <p class="ml-auto mr-2 md:mr-4">Beer</p>
+    <p class="ml-auto mr-8">Beer</p>
     <p class="ml-auto mr-2">Cider</p>
   </div>
   <hr />
