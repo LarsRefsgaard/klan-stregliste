@@ -10,7 +10,7 @@
       <User :user="{ id: user.id, ...user.data() }" />
     </div>
     <div id="pseudo-element" class="flex flex-row" style="visibility: hidden;">
-      <User :user="{ id: '', 'display-name': '', beer: 0, cider: 0 }"></User>
+      <User :user="{ id: '', 'display-name': '', beer: 0, cider: 0 }" :pseudo="true"></User>
     </div>
   </div>
 </template>
