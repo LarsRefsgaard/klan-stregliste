@@ -1,51 +1,51 @@
 <template>
-  <div id="stick" class="sub-layout">
-    <h1>Name</h1>
-    <h1>Beer</h1>
-    <h1>Cider</h1>
+  <div
+    ref="stick_header"
+    class="sticky top-0 flex flex-row w-full py-4 font-bold transition-all duration-300 dark:bg-nord0 bg-nord6 fontsize center"
+    @click="changeSize"
+  >
+    <span>Name</span>
+    <span ref="beer" class="ml-auto">Beer</span>
+    <span ref="cider">Cider</span>
   </div>
+  <hr />
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { ref, onMounted } from 'vue';
 
-export default defineComponent({
-  setup() {
-    const header = document.getElementById('stick');
+const beer = ref<HTMLElement | null>(null);
+const cider = ref<HTMLElement | null>(null);
+const stick_header = ref<HTMLElement | null>(null);
 
-    const sticky = header?.offsetTop;
+const changeSize = () => {
+  const element = document.getElementById('pseudo-element');
+  const beerSize = element?.children[1].clientWidth;
+  const ciderSize = element?.children[2].clientWidth;
+  console.log(element);
+  if (beer.value) beer.value.style.width = `${beerSize}px`;
+  if (cider.value) cider.value.style.width = `${ciderSize}px`;
+}
 
-    function handleScroll(): void {
-      if (typeof sticky !== 'undefined') {
-        if (window.pageYOffset > sticky) {
-          // eslint-disable-next-line no-unused-expressions
-          header?.classList.add('sticky-header');
-        }
-        // eslint-disable-next-line no-unused-expressions
-        header?.classList.remove('sticky-header');
-      }
-      console.log('hi');
+const scrollFunction = () => {
+  if (stick_header.value) {
+    if (document.documentElement.scrollTop > 50) {
+      stick_header.value.style.fontSize = "calc(var(--text-size) - 0.5vw * 4)"
+      stick_header.value.style.paddingBottom = '0.5rem'
+    } else {
+      stick_header.value.style.paddingBottom = '1rem'
+      stick_header.value.style.fontSize = "calc(var(--text-size) - 0.5vw)"
     }
-    window.onscroll = () => {
-      // eslint-disable-next-line no-unused-expressions
-      handleScroll;
-    };
-
-    return { handleScroll };
-  },
-});
+  }
+}
+window.onscroll = scrollFunction;
+onMounted(changeSize);
+window.onresize = changeSize;
 </script>
 
 <style scoped>
-h1 {
-  font-size: calc(var(--text-size) - 0.5vw);
-  margin: 0;
-}
 
-.sticky-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: #fff;
+.fontsize {
+  font-size: calc(var(--text-size) - 0.5vw);
 }
 </style>

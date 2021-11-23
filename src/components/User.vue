@@ -1,67 +1,36 @@
-<template>
-  <div class="vertically-center">
-    <h2 class="user-text">
-      {{ user['display-name'] }}
-    </h2>
+<template >
+  <div :data-cy="pseudo || 'name'" class="mr-auto flex items-center">
+    <span class="p-0 mx-0 overflow-auto font-bold user-text">{{ user['display-name'] }}</span>
   </div>
-  <div class="drinks-layout">
-    <DrinkNumber :count="user.beer" />
+  <div :data-cy="pseudo || 'beer'" class="flex flex-row m-0">
+    <DrinkNumber :count="user.beer ?? 0" />
     <DrinkSetter :user="user" drink="beer" />
   </div>
-  <div class="drinks-layout">
-    <DrinkNumber :count="user.cider" />
+  <div :data-cy="pseudo || 'cider'" class="flex flex-row mx-0">
+    <DrinkNumber :count="user.cider ?? 0" />
     <DrinkSetter :user="user" drink="cider" />
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue';
-import { Stregliste } from '@/db/schema';
+<script setup lang="ts">
 import DrinkSetter from './DrinkSetter.vue';
 import DrinkNumber from './DrinkNumber.vue';
+import { Stregliste } from '../db/schema';
 
-export default defineComponent({
-  components: { DrinkSetter, DrinkNumber },
-  props: {
-    user: {
-      type: Object as never,
-      default() {
-        return {
-          'display-name': '',
-          beer: 0,
-          cider: 0,
-        } as Stregliste;
-      },
-    },
-  },
-});
+const props = withDefaults(defineProps<{ user: Stregliste, pseudo: boolean }>(), { pseudo: false });
 </script>
 
 <style>
 .user-text {
   --drink-number: calc(var(--text-size) * 2);
   font-size: var(--text-size);
-  font-weight: 800;
-  margin: 0px auto;
-  padding: 0px;
 }
 :root {
   --text-size: 4vw;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 768px) {
   :root {
     --text-size: 7vw;
   }
-}
-
-.vertically-center {
-  display: grid;
-  align-content: center;
-  justify-content: start;
-}
-
-.drinks-layout {
-  display: flex;
-  flex-direction: row;
 }
 </style>

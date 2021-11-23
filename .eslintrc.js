@@ -3,22 +3,32 @@ module.exports = {
   env: {
     node: true,
   },
-  extends: ['plugin:vue/vue3-recommended', '@vue/airbnb', '@vue/typescript/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:vue/vue3-recommended',
+    '@vue/typescript/recommended',
+    'prettier',
+    'plugin:cypress/recommended',
+  ],
+  plugins: ['cypress'],
   parserOptions: {
     ecmaVersion: 'ESNEXT',
   },
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'vue/max-attributes-per-line': ['error', {
-      singleline: {
-        max: 3,
-        allowFirstLine: true,
+    'vue/max-attributes-per-line': [
+      'error',
+      {
+        singleline: 3,
+        multiline: 3,
       },
-      multiline: {
-        max: 3,
-        allowFirstLine: false,
-      },
-    }],
+    ],
+    'vue/script-setup-uses-vars': 0,
+  },
+  globals: {
+    defineProps: 'readonly',
+    defineEmits: 'readonly',
+    defineExpose: 'readonly',
+    withDefaults: 'readonly',
+    'cypress/globals': true,
   },
 };

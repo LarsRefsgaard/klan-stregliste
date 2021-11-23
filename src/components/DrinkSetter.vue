@@ -1,34 +1,27 @@
 <template>
-  <div class="button-layout; center">
-    <button @click="mutate(drink, true)">
-      <span class="material-icons"> add </span>
+  <div class="flex flex-col flex-nowrap">
+    <button data-cy="add" @click="mutate(drink, a => a + 1)">
+      <span class="material-icons-round">add</span>
     </button>
-    <button @click="mutate(drink, false)">
-      <span class="material-icons"> remove </span>
+    <button data-cy="remove" @click="mutate(drink, a => a ? a - 1 : a)">
+      <span class="material-icons-round">remove</span>
     </button>
   </div>
 </template>
 
-<script lang="ts">
-import { addToDrink } from '@/db/actions';
-import { defineComponent } from 'vue';
+<script setup lang="ts">
+import { addToDrink } from '../db/actions';
+import { drinks, Stregliste } from '../db/schema';
 
-export default defineComponent({
-  props: {
-    // eslint-disable-next-line vue/require-default-prop
-    user: Object as never,
-    drink: {
-      type: String,
-      default: '',
-    },
-  },
-  setup(props) {
-    const mutate = addToDrink(props);
+interface Props {
+  user: Stregliste;
+  drink: drinks;
+}
+const props = defineProps<Props>();
 
-    return { mutate };
-  },
-});
+const mutate = addToDrink(props);
 </script>
+
 
 <style scoped>
 .button-layout {
@@ -38,69 +31,18 @@ export default defineComponent({
   /* justify-content: space-around; */
 }
 
-.material-icons {
+.material-icons-round {
   font-size: 6vw;
   font-weight: bold;
 }
 
-button {
-  font-family: Roboto;
-  font-weight: 1000;
-  width: 8vw;
-  height: 8vw;
-  margin: 0px auto;
-  padding: 0;
-  background: none;
-  color: inherit;
-  border: none;
-  border-radius: 10%;
-  transition: all 0.3s;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-@media (hover: hover) {
-  button:hover {
-    background: whitesmoke;
-  }
-}
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 768px) {
   button {
     width: 5vw;
     height: 5vw;
   }
-  .material-icons {
+  .material-icons-round {
     font-size: 4vw;
   }
 }
-
-/* button {
-  background: none;
-  border: none;
-  font-size: 5em;
-  padding: 0;
-} */
-/*
-button {
-  font-family: Roboto;
-  font-size: 2.5em;
-  font-weight: bold;
-  display: inline-block;
-  margin: 0 auto;
-  padding: 0;
-  background-color: none;
-  background: none;
-  border: none;
-  border-radius: 10%;
-  box-sizing: border-box;
-  width: 1em;
-  height: 1em;
-  line-height: 100%;
-  cursor: pointer;
-  box-shadow: 0 0 0 rgba(0, 0, 0, 0.1), inset 0 0 0 rgba(0, 0, 0, 0.1);
-  text-align: left;
-}
-button:hover {
-  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.1);
-  background-color: #dcdcdc;
-} */
 </style>
