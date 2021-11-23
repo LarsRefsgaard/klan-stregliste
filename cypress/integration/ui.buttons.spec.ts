@@ -37,7 +37,7 @@ it('cannot go below 0', () => {
 	const checkAndReload = () => {
 		// get the element's text, convert into a number
 		cy.get('[data-cy="beer"]')
-			.first()
+			.last()
 			.as('item')
 			.find('.user-text')
 			.then((number) => {

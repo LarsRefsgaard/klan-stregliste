@@ -1,13 +1,13 @@
 <template >
-  <div data-cy="name" class="grid content-start justify-start">
-    <h2 class="p-0 m-0 font-bold user-text">{{ user['display-name'] }}</h2>
+  <div :data-cy="pseudo || 'name'" class="mr-auto flex items-center">
+    <span class="p-0 mx-0 overflow-auto font-bold user-text">{{ user['display-name'] }}</span>
   </div>
-  <div data-cy="beer" class="flex flex-row m-0 ml-auto">
-    <DrinkNumber :count="user.beer" />
+  <div :data-cy="pseudo || 'beer'" class="flex flex-row m-0">
+    <DrinkNumber :count="user.beer ?? 0" />
     <DrinkSetter :user="user" drink="beer" />
   </div>
-  <div data-cy="cider" class="flex flex-row mx-0 ml-auto">
-    <DrinkNumber :count="user.cider" />
+  <div :data-cy="pseudo || 'cider'" class="flex flex-row mx-0">
+    <DrinkNumber :count="user.cider ?? 0" />
     <DrinkSetter :user="user" drink="cider" />
   </div>
 </template>
@@ -17,7 +17,7 @@ import DrinkSetter from './DrinkSetter.vue';
 import DrinkNumber from './DrinkNumber.vue';
 import { Stregliste } from '../db/schema';
 
-const props = defineProps<{ user: Stregliste }>();
+const props = withDefaults(defineProps<{ user: Stregliste, pseudo: boolean }>(), { pseudo: false });
 </script>
 
 <style>

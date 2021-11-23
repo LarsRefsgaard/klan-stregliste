@@ -9,20 +9,5 @@ import Home from '@/components/Home.vue';
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Roboto");
-#app {
-  font-family: Arial, Roboto, Avenir, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
-  color: #2c3e50;
-  background: #ffffff;
-}
-
-@media (prefers-color-scheme: dark) {
-  #app,
-  html {
-    background: #181a1b;
-    color: #aec2d3;
-  }
-}
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&display=swap");
 </style>

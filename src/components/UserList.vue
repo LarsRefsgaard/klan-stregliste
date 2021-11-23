@@ -1,13 +1,16 @@
 <template>
-  <div class="flex flex-col ">
+  <div class="flex flex-col">
     <StickyHeader />
     <div
       v-for="user in stregliste.docs"
       :key="user.id"
       :data-cy="user.data()['display-name']"
-      class="grid grid-rows-1 sub-layout"
+      class="flex flex-row"
     >
       <User :user="{ id: user.id, ...user.data() }" />
+    </div>
+    <div id="pseudo-element" class="flex flex-row" style="visibility: hidden;">
+      <User :user="{ id: '', 'display-name': '', beer: 0, cider: 0 }" :pseudo="true"></User>
     </div>
   </div>
 </template>
@@ -26,9 +29,3 @@ onSnapshot(query(db, orderBy('display-name', 'asc')), (querySnapshot) => {
 });
 
 </script>
-
-<style scoped>
-.sub-layout {
-  grid-template-columns: 2fr 1fr 1fr;
-}
-</style>

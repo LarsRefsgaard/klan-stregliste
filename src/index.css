@@ -3,20 +3,48 @@
 
 @layer base {
 	body {
-		@apply px-2 mb-80 md:py-0 md:px-1/20;
+		@apply px-2 mb-80 md:py-0 md:px-left-padding;
 	}
 	button {
-		@apply box-border p-0 m-0 font-extrabold border-transparent rounded-md cursor-pointer focus:ring;
-		@apply bg-opacity-30 hover:bg-gray-200 dark:hover:bg-gray-700;
+		@apply box-border p-0 m-0 font-extrabold border-transparent rounded-xl cursor-pointer focus:ring w-[8vw] h-[8vw];
+		@apply bg-opacity-30 hover:bg-nord4 dark:hover:bg-nord2;
 		@apply transition-all duration-300 ease-in-out;
-		width: 8vw;
-		height: 8vw;
-		color: inherit;
 		touch-action: manipulation;
 	}
-
 	p {
 		@apply leading-none;
+	}
+}
+@layer components {
+	.seperator {
+		@apply rounded-full;
+		@apply w-1 h-12 mx-2 my-auto ml-auto;
+		@apply md:mx-auto md:my-2 md:mt-auto md:w-12 md:h-1;
+		@apply bg-nord4 dark:bg-nord1;
+	}
+	.sidebar {
+		@apply fixed bottom-0 flex shadow-lg;
+		@apply left-0 flex-row w-screen h-16;
+		@apply md:top-0 md:flex-col md:w-16 md:h-screen;
+		@apply dark:bg-nord0 dark:border-nord2 bg-nord6;
+	}
+	.sidebar-icon {
+		@apply relative flex items-center justify-center w-12 h-12 transition-all duration-300 ease-linear shadow-lg cursor-pointer rounded-3xl hover:rounded-xl;
+		@apply mx-2 my-auto md:mx-auto md:my-2;
+		@apply bg-nord5 hover:bg-nord4 dark:bg-nord1 dark:hover:bg-nord2;
+	}
+	.sidebar-tooltip {
+		@apply absolute w-auto p-2 m-2 text-xs font-bold transition-all duration-100 origin-left scale-0 rounded-md shadow-md bg-nord5 dark:bg-nord3 min-w-max left-14;
+	}
+	body,
+	#app {
+		font-family: Arial, Roboto, Avenir, Helvetica, sans-serif;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		@apply text-nord0 bg-nord6 dark:bg-nord0 dark:text-nord4;
+	}
+	hr {
+		@apply bg-nord4 dark:bg-nord1 h-[2px] p-0 border-none rounded-xl;
 	}
 }
 
