@@ -14,19 +14,19 @@ it('can add and subtract', () => {
 					.as('item')
 					.find('.user-text')
 					.then(($p) => {
-						const initialValue = parseInt($p.text());
+						const initialValue = parseInt($p.text(), 10);
 						cy.get('@item')
 							.find('[data-cy="add"]')
 							.click()
 							.then(() => {
-								expect(parseInt($p.text())).to.equal(initialValue + 1);
+								expect(parseInt($p.text(), 10)).to.equal(initialValue + 1);
 							});
 
 						cy.get('@item')
 							.find('[data-cy="remove"]')
 							.click()
 							.then(() => {
-								expect(parseInt($p.text())).to.equal(initialValue);
+								expect(parseInt($p.text(), 10)).to.equal(initialValue);
 							});
 					});
 			});
@@ -43,12 +43,12 @@ it('cannot go below 0', () => {
 			.then((number) => {
 				// if the expected number is found
 				// stop adding any more commands
-				const value = parseInt(number.text());
+				const value = parseInt(number.text(), 10);
 				cy.get('@item')
 					.find('[data-cy="remove"]')
 					.click()
 					.then(() => {
-						expect(parseInt(number.text())).to.not.lessThan(0);
+						expect(parseInt(number.text(), 10)).to.not.lessThan(0);
 					});
 
 				if (value === 0) {
